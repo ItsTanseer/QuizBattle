@@ -167,7 +167,7 @@ const initSocket = (io) => {
         };
 
         io.to(roomCode).emit('game-started', { message: 'Game is starting!' });
-        setTimeout(() => sendQuestion(io, roomCode, 0), 2000);
+        setTimeout(() => sendQuestion(io, roomCode, 0), 4000);
         callback?.({ success: true });
       } catch (err) {
         console.error('start-game error:', err);

@@ -95,7 +95,7 @@ const Lobby = () => {
     const onGameStarted = () => {
       setStatus('starting');
       toast.success('Game starting! 🚀');
-      setTimeout(() => navigate(`/rooms/${code}/quiz`), 1500);
+      setTimeout(() => navigate(`/rooms/${code}/quiz`), 500);
     };
 
     socket.on('player-joined', onPlayerJoined);

@@ -25,17 +25,10 @@ connectDB();
 const app = express();
 const server = http.createServer(app);
 
-// ─── CORS origin helper ───────────────────────────────────────────────────
-// CLIENT_URL can be a single URL or comma-separated list e.g.
-// "https://quizbattle.vercel.app,http://localhost:5173"
-const allowedOrigins = process.env.CLIENT_URL
-  ? process.env.CLIENT_URL.split(',').map((o) => o.trim())
-  : true; // true = allow all origins (safe until Vercel URL is known)
-
 // ─── Socket.IO ────────────────────────────────────────────────────────────
 const io = new Server(server, {
   cors: {
-    origin: allowedOrigins,
+    origin: process.env.CLIENT_URL || 'http://localhost:5173',
     methods: ['GET', 'POST'],
     credentials: true,
   },
@@ -48,7 +41,7 @@ app.use(helmet());
 
 app.use(
   cors({
-    origin: allowedOrigins,
+    origin: process.env.CLIENT_URL || 'http://localhost:5173',
     credentials: true,
   })
 );
