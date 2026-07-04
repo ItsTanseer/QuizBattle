@@ -26,9 +26,10 @@ export const SocketProvider = ({ children }) => {
 
     const newSocket = io(import.meta.env.VITE_SOCKET_URL || 'http://localhost:5000', {
       auth: { token },
-      transports: ['websocket', 'polling'],
-      reconnectionAttempts: 5,
+      transports: ['websocket'],
+      reconnectionAttempts: 10,
       reconnectionDelay: 1000,
+      timeout: 10000,
     });
 
     newSocket.on('connect', () => {
