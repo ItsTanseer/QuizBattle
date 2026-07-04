@@ -28,7 +28,7 @@ const Navbar = () => {
 
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2 flex-shrink-0">
-            <img src='icon.png' className="w-10 h-10 object-cover" />
+            <img src='/icon.png' className="w-10 h-10 object-cover" />
             <span className="text-xl font-bold text-white">
               Quiz<span className="bg-amber-500 text-black px-1">Battle</span>
             </span>
