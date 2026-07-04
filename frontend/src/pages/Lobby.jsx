@@ -94,6 +94,7 @@ const Lobby = () => {
     };
     const onGameStarted = () => {
       setStatus('starting');
+      hasJoined.current = false; // CRITICAL: Prevent emitting 'leave-room' when unmounting to navigate
       toast.success('Game starting! 🚀');
       setTimeout(() => navigate(`/rooms/${code}/quiz`), 500);
     };
